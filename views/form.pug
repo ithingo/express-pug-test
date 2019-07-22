@@ -4,12 +4,13 @@ block content
   //- check if data exists otherwise initialize with empty object
   -data = data || {}
 
-  form(action="." method="POST")
+  form(action="." method="POST" class="registration-form")
     .form-group
       label(for="name") Name:
       input(
         type="text"
         id="name"
+        class="form-control"
         name="name"
         autocomplete="off"
         value=data.name
@@ -20,6 +21,7 @@ block content
       input(
         type="text"
         id="email"
+        class="form-control"
         name="email"
         autocomplete="off"
         value=data.email
@@ -30,4 +32,7 @@ block content
         for error in errors
           li= error.msg
 
-    input(type="submit" value="Submit")
+    button(
+      type="submit"
+      class="btn btn-lg btn-primary btn-block"
+    ) Submit
