@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  //- check if data exists otherwise initialize with empty object
+  -data = data || {}
+
+  form(action="." method="POST")
+    .form-group
+      label(for="name") Name:
+      input(
+        type="text"
+        id="name"
+        name="name"
+        autocomplete="off"
+        value=data.name
+      )
+
+    .form-group
+      label(for="email") Email:
+      input(
+        type="text"
+        id="email"
+        name="email"
+        autocomplete="off"
+        value=data.email
+      )
+
+    if errors
+      ul
+        for error in errors
+          li= error.msg
+
+    input(type="submit" value="Submit")
